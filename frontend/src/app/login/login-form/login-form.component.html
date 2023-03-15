@@ -1,0 +1,30 @@
+<div>
+  <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+    <div class="form">
+      <div>
+        <label>Nom d'usager: </label>
+        <input
+          name="username"
+          type="text"
+          formControlName="username"
+          data-testid="username-input"
+          [ngClass]="{ 'border-red': showUsernameRequiredError() }"/>
+      </div>
+      <div>
+        <label>Mot de passe: </label>
+        <input
+          name="password"
+          type="password"
+          formControlName="password"
+          data-testid="password-input"
+          [ngClass]="{ 'border-red': showPasswordRequiredError() }"/>
+      </div>
+    </div>
+    <br />
+    <div *ngIf="showUsernameRequiredError()" class="text-red">Entrer le nom d'utilisateur</div>
+    <div *ngIf="showPasswordRequiredError()" class="text-red">Entrer le mot de passe</div>
+    <div class="login">
+      <button type="submit" data-testid="login-button">Connexion</button>
+    </div>
+  </form>
+</div>

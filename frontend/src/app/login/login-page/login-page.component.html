@@ -1,0 +1,5 @@
+<div>
+  <div *ngIf="this.error" class="text-red">{{ this.error }}</div>
+  <br />
+  <app-login-form (login)="onLogin($event)"></app-login-form>
+</div>
